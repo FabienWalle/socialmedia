@@ -1,5 +1,12 @@
-faire les traits
+vue "profile index" et "profile edit"
 
-faire le git
+formulaire post
 
-passer aux vues
+vue post
+
+formulaire commentaire
+
+vue des commentaires
+
+ajouter l'entité hashtag
+

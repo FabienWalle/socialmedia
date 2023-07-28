@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil -{% endblock %}
+
+{% block body %}
+<h1>Mon profil</h1>
+    {{ app.user.name }}
+    {{ app.user.email }}
+    {{ app.user.bio }}
+    {{ app.user.dob|date('d-m-Y') }}
+    <a href="{{ path('profile_edit') }}">Editer mon profil</a>
+{% endblock %}
