@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtTrait;
 use App\Repository\ImageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 class Image
 {
+
+    use CreatedAtTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -18,6 +21,10 @@ class Image
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Post $post = null;
+
+    public function __construct(){
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -47,4 +54,5 @@ class Image
 
         return $this;
     }
+
 }

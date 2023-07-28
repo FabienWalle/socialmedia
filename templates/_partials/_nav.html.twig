@@ -1,0 +1,58 @@
+<aside class="col-2 d-flex flex-column justify-content-between" style="height: 90vh">
+    <nav class="nav flex-column p-2 w-100 align-items-center d-flex">
+        <div class="start-0 w-100">
+            <img src="{{ asset('assets/images/bird-little.svg') }}" alt="orange bird" width="50px" class="ms-3">
+        </div>
+        {% if app.user %}
+            <div class="nav-item d-flex align-items-center w-100 mt-3 mb-1">
+                <i class="w-25 bi bi-house-fill text-center" style="font-size: 1.25rem"></i>
+                <a class="w-75 nav-link btn btn-outline-primary text-start" aria-current="page" href="{{ path('main') }}">Accueil</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-search text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Explorer</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-bell text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Notifications</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-envelope text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Messages</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-file-text text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Listes</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-patch-check text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Certifié</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-1">
+                <i class="w-25 ms-auto bi bi-person text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Profil</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 mt-1 mb-3">
+                <i class="w-25 ms-auto bi bi-three-dots text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="">Plus</a>
+            </div>
+            <a href="" class="rounded-pill w-100 btn btn-primary">Poster</a>
+        {% else %}
+            <div class="nav-item d-flex align-items-center w-100 my-3">
+                <i class="w-25 ms-auto bi bi-box-arrow-in-right text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="{{ path('app_login') }}">Se connecter</a>
+            </div>
+            <div class="nav-item d-flex align-items-center w-100 my-3">
+                <i class="w-25 ms-auto bi bi-file-earmark-person-fill text-center"></i>
+                <a class="w-75 ms-auto nav-link btn btn-outline-primary text-start" aria-current="page" href="{{  path('app_register')}}">S'inscrire</a>
+            </div>
+        {% endif %}
+    </nav>
+    {% if app.user %}
+        <div class="text-center p-1">
+            <span class="h5">@ {{ app.user.name }}</span>
+            <a href="{{ path('app_logout') }}" class="rounded-pill btn btn-outline-danger w-100">Se déconnecter</a>
+        </div>
+    {% endif %}
+
+</aside>

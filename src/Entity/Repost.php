@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtTrait;
 use App\Repository\RepostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,27 +10,23 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: RepostRepository::class)]
 class Repost
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
+use CreatedAtTrait;
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $repost_text = null;
 
+    #[ORM\Id]
     #[ORM\ManyToOne(inversedBy: 'reposts')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Id]
     #[ORM\ManyToOne(inversedBy: 'reposts')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Post $post = null;
 
-    public function getId(): ?int
-    {
-        return $this->id;
+    public function __construct(){
+        $this->created_at = new \DateTimeImmutable();
     }
-
     public function getRepostText(): ?string
     {
         return $this->repost_text;
@@ -65,4 +62,5 @@ class Repost
 
         return $this;
     }
+
 }
