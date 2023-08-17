@@ -1,0 +1,30 @@
+<div class="my-1">
+    {{ form_start(PostForm) }}
+    <div class="my-1">{{ form_row(PostForm.text) }}</div>
+    <div class="my-1 mx-2 d-flex justify-content-between align-items-center">
+        <i class="bi bi-image-fill"></i>
+        {{ form_row(PostForm.submit) }}
+    </div>
+    {{ form_end(PostForm) }}
+</div>
+<section class="w-100">
+    <h2>
+        Mes derniers posts
+    </h2>
+    <div class="d-flex flex-column"  style="max-height: 75vh ;overflow-y: auto">
+        {% for post in userPosts %}
+            <div class="card card-body my-2">
+                <div class="card-title fs-5 d-flex justify-content-between">
+                    <div class=""><strong>@{{ post.user.name }}</strong></div>
+                    <div class="text-body-tertiary">Le {{ post.getCreatedAt()|date('d/m/Y') }} à {{ post.getCreatedAt()|date('H:i') }}</div>
+                </div>
+                <h5 class="card-text fs-6">{{ post.text }}</h5>
+                <div class="card-footer d-flex justify-content-between">
+                    <i class="bi bi-chat"></i>
+                    <i class="bi bi-repeat"></i>
+                    <i class="bi bi-heart"> {{ post.likes }} </i>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
+use App\Entity\Trait\LikesTrait;
 use App\Repository\RepostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -10,7 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: RepostRepository::class)]
 class Repost
 {
-use CreatedAtTrait;
+    use LikesTrait;
+    use CreatedAtTrait;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $repost_text = null;
 

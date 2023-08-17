@@ -17,13 +17,14 @@ class PostFormType extends AbstractType
             ->add('text', TextType::class, [
                 'attr'=>[
                     'class' => 'form-control',
-                    'style' => 'height: 15vh'
+                    'placeholder'=>'Quoi de neuf ?'
                 ],
-                'label'=>'Mon nouveau post'
+                'label'=>'Mon nouveau post',
+                'label_attr' => ['class' => 'visually-hidden'],
             ])
             ->add('submit', SubmitType::class, [
                 'attr'=>[
-                    'class'=>'form-control btn btn-primary my-2'
+                    'class'=>'form-control btn btn-primary'
                 ],
                 'label'=>'Valider'
             ])

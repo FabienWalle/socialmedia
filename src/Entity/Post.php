@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
+use App\Entity\Trait\LikesTrait;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,6 +15,7 @@ class Post
 {
 
     use CreatedAtTrait;
+    use LikesTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]

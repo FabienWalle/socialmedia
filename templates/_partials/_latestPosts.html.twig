@@ -1,0 +1,21 @@
+<section>
+    <h2>Les derniers posts</h2>
+    <div class="d-flex flex-column flex-row" style="max-height: 80vh ;overflow-y: auto">
+        {% for post in latestPosts %}
+        <div class="card card-body my-2">
+            <div class="card-title fs-5 d-flex justify-content-between">
+                <div class=""><strong>@{{ post.user.name }}</strong></div>
+                <div class="text-body-tertiary">Le {{ post.getCreatedAt()|date('d/m/Y') }} à {{ post.getCreatedAt()|date('H:i') }}</div>
+            </div>
+            <h5 class="card-text fs-6">{{ post.text }}</h5>
+            <div class="card-footer d-flex justify-content-between">
+                <i class="bi bi-chat"></i>
+                <i class="bi bi-repeat"></i>
+                <i class="bi bi-heart"> {{ post.likes }} </i>
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+</section>
+

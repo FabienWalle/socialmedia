@@ -3,14 +3,17 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <div>
-        <div class="d-flex justify-content-between mx-2 my-2">
-            <div><h1 class="fs-2">Accueil</h1></div>
-            <div><h3 class="fs-2">Rechercher</h3></div>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between mx-2 my-2 flex-row">
+            <div><h1 class="fs-3">Accueil</h1></div>
+            <div><h3 class="fs-3">Rechercher</h3></div>
         </div>
-        <div>
-            <div>
-                <h1 class="fs-2"><a href="{{ path('addpost')}}">Créer un nouveau post</a></h1>
+        <div class="row">
+            <div class="col-8">
+                {% include '_partials/_userPosts.html.twig' %}
+            </div>
+            <div class="col-4">
+                {% include '_partials/_latestPosts.html.twig' %}
             </div>
         </div>
     </div>

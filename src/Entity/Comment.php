@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Entity\Trait\CreatedAtTrait;
+use App\Entity\Trait\LikesTrait;
 use App\Repository\CommentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -13,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Comment
 {
 
+    use LikesTrait;
     use CreatedAtTrait;
     #[ORM\Id]
     #[ORM\GeneratedValue]
