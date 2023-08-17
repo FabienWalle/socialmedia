@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Editer mon profil {% endblock %}
+
+{% block body %}
+    <section class="w-100 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="w-75 text-center">
+            <h1>Editer mon profil</h1>
+            {{ form(editProfileForm) }}
+        </div>
+    </section>
+{% endblock %}

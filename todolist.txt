@@ -1,12 +1,10 @@
-vue "profile index" et "profile edit"
-
-formulaire post
-
+Formulaire post
 vue post
 
+faire l'entité pour clé étrangère combinée pour les comments
 formulaire commentaire
-
 vue des commentaires
 
 ajouter l'entité hashtag
+
 
